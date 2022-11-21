@@ -37,8 +37,8 @@ The DID and Public-Key generated in this way become the payload of the request m
 * DID Enroll Request : Client to Issuer
 <pre>
 {
-  “id” : “did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87”,
-  “publicKeyBase58” : “49PpU4vgqFNtNUAeaeR2m6ZLsgMavL54HtXaTwYdqyi7xKQXREUw219nEH”
+  "id" : "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",
+  "publicKeyBase58" : "49PpU4vgqFNtNUAeaeR2m6ZLsgMavL54HtXaTwYdqyi7xKQXREUw219nEH"
 }
 </pre>
 Upon receiving the client's request message, the issuer adds "controller" and necessary "service" information on request message and convey it to Data-Alliance's Verifiable Data Registry.
@@ -46,8 +46,8 @@ After conveying, the DID Document for the request is created in the Data-Allianc
 * DID Enroll Request : Issuer to Data-Alliance Verifiable Data Registry
 <pre>
 {
-  “id” : “did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87”,
-  “publicKeyBase58” : “49PpU4vgqFNtNUAeaeR2m6ZLsgMavL54HtXaTwYdqyi7xKQXREUw219nEH”
+  "id" : "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",
+  "publicKeyBase58" : "49PpU4vgqFNtNUAeaeR2m6ZLsgMavL54HtXaTwYdqyi7xKQXREUw219nEH",
   "controller": "did:dxd:0000da235c7923cac3a7af330ade1cdaf21a657a7cca8c8bcfa7",
   "service": [
     {
@@ -59,8 +59,17 @@ After conveying, the DID Document for the request is created in the Data-Allianc
 }
 </pre>
 
-
 ### DID Infomation (Read)
+
+Clients can get information of a specific DID by sending it to the Data-Alliance Verifiable Data Registry.   
+After Requesting, a DID Document would return 
+* DID Infomation Request : Client to Data-Alliance Verifiable Data Registry
+<pre>
+{
+  "id" : "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",
+}
+</pre>
+
 ### DID Update (Update)
 #### Public-Key Add & Update
 #### Deactivate & Enactivate
