@@ -11,8 +11,8 @@ It is generated using the elliptic curve encryption algorithm(secp256k1) using N
 Key generation must be generated directly from the device of the DID Subject.
 
 ### Generating a unique idstring
-A DID that uses this method **MUST** begin with the prefix "did:dxd", this prefix **MUST** be in lowercase.   
-Data-Alliance DID format is descibed below.
+A DA-DID(Data-Alliance DID) that uses this method **MUST** begin with the prefix "did:dxd", this prefix **MUST** be in lowercase.   
+DA-DID format is descibed below.
 
 ![did:dxd_format](https://github.com/Data-Alliance/did-dxd/blob/master/did:dxd_format.png)
 
