@@ -6,7 +6,13 @@ DID표준 버전
 ## Overview
 ### Method Name
 ## Specification
+### Generating a Key-Pair
+It is generated using the elliptic curve encryption algorithm(secp256k1) using Neal Koblitz elliptic curve. (See http://www.secg.org/sec2-v2.pdf)
+Key generation must be generated directly from the device of the DID Subject.
+
 ### Generating a unique idstring
+
+
 ### DID Document Model
 
 ## CRUD Operation
