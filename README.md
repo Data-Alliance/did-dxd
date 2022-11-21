@@ -16,8 +16,10 @@ DA-DID format is descibed below.
 
 ![did:dxd_format](https://github.com/Data-Alliance/did-dxd/blob/master/did:dxd_format.png)
 
-
 ### DID Document Model
+
+![did:dxd_format](https://github.com/Data-Alliance/did-dxd/blob/master/did-document_format1.png)
+![did:dxd_format](https://github.com/Data-Alliance/did-dxd/blob/master/did-document_format2.png)
 
 ## CRUD Operation
 ### DID Enroll (Create)
