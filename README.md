@@ -4,6 +4,8 @@
 DA소개 및 연락처
 DID표준 버전
 ## Overview
+The system aims to provide secure authentication and various services based on DID & Verifiable Credential Specifications published by the W3C.
+
 ### Method Name
 ## Specification
 ### Generating a Key-Pair
@@ -17,6 +19,10 @@ DA-DID format is descibed below.
 ![did:dxd_format](https://github.com/Data-Alliance/did-dxd/blob/master/did:dxd_format.png)
 
 ### DID Document Model
+DA-DID (Data-Alliance DIDs) provides a DID Document that are mapped to the DID of registered Holder through Verifiable Data Registry.   
+The DID Document does not contain any kind of "personal information" that can identify the holder, and the service provided through DA-DID
+It contains only information for proof of identity and proof of authority.   
+Under DA-DID, the transfer of personal information must be done only through an encrypted Verifiable Credential.   
 
 ![did:dxd_format](https://github.com/Data-Alliance/did-dxd/blob/master/did-document_format1.png)
 ![did:dxd_format](https://github.com/Data-Alliance/did-dxd/blob/master/did-document_format2.png)
