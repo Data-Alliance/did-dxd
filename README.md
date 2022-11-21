@@ -11,7 +11,7 @@ It is generated using the elliptic curve encryption algorithm(secp256k1) using N
 Key generation must be generated directly from the device of the DID Subject.
 
 ### Generating a unique idstring
-
+![did:dxd_format](https://user-images.githubusercontent.com/59458176/202952110-7e8a24d7-5ca3-4fc7-a8c8-96f41e94429a.png)
 
 ### DID Document Model
 
