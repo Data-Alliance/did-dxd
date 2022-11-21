@@ -71,9 +71,31 @@ After Requesting, a DID Document would return
 </pre>
 
 ### DID Update (Update)
+
+
+
 #### Public-Key Add & Update
+Holder의 전자서명 필요, 전자서명은 SC에서 검증된다.
+
+#### Service Add
+
+1. CitizenShip
+  서비스도메인(Issuer)에 등록될때(VC가 발급될때) 추가된다.
+  서비스도메인의 전자서명 필요, 전자서명은 SC에서 검증된다.
+2. IotLoRa
+  서비스도메인(디바이스관리 도메인)에 등록될때 추가된다.
+  서비스도메인의 전자서명 필요, 전자서명은 SC에서 검증된다.
+3. IotWifi
+  서비스도메인(디바이스관리 도메인)에 등록될때 추가된다.
+  서비스도메인의 전자서명 필요, 전자서명은 SC에서 검증된다.
+
 #### Deactivate & Enactivate
+서비스도메인(Issuer)의 전자서명 필요, 전자서명은 SC에서 검증된다.
+
 ### DID Rovoke (Delete)
+서비스도메인(Issuer)의 전자서명 필요, 전자서명은 SC에서 검증된다.
+
+
 ## References
 - Decentralized Identifiers (DIDs) v1.0 https://www.w3.org/TR/2022/REC-did-core-20220719/
 - DID Specification Registries https://www.w3.org/TR/2022/NOTE-did-spec-registries-20220809/
