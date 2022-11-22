@@ -66,34 +66,143 @@ After Requesting, a DID Document would return
 * DID Infomation Request : Client to Data-Alliance Verifiable Data Registry
 <pre>
 {
-  "id" : "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",
+  "id" : "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87"
 }
 </pre>
 
 ### DID Update (Update)
-
-
+DID Document는 업데이트가능하고 proof(전자서명)를 통해 신원인증 절차가 포함되어 있다
+업데이트 항목은 public-key, deactivate 및 service 이다.
+각 항목에 따라 필요 proof가 달라진다.
 
 #### Public-Key Add & Update
-Holder의 전자서명 필요, 전자서명은 SC에서 검증된다.
+Holder의 전자서명 필요, 전자서명은 SC에서 검증된다.   
+추가하는 public-key는 "verificationMethod"에 정의하고 이미 존재하는 "id"이면 update이고 존재하지 않으면 add이다
+이 "id"는 "proof-verificationMethod"와 달라야 한다.
+
+<pre>
+"credentialSubject": {
+  "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",  // ???
+  "verificationMethod": [
+    {
+      "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#keys-2",
+      "type": "EcdsaSecp256k1VerificationKey2019",
+      "controller": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",
+      "publicKeyBase58": "zEY59y7px76e2yv5FMj9fYcjDsqk8yus6isWtkF69ZrHY"
+    }
+  ]  
+},
+"proof": {
+  "type": "Ed25519Signature2020",
+  "created": "2021-11-13T18:19:39Z",
+  "verificationMethod": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#key-1",
+  "proofPurpose": "assertionMethod",
+  "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
+}
+</pre>
 
 #### Service Add
 
 1. CitizenShip
   서비스도메인(Issuer)에 등록될때(VC가 발급될때) 추가된다.
   서비스도메인의 전자서명 필요, 전자서명은 SC에서 검증된다.
+
+<pre>
+"credentialSubject": {
+  "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",  // ???
+  "service": {
+    "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#svc-citizenship",
+    "type": "CitizenShip",
+    "serviceEndpoint": "https://citizen.example.co.kr"
+  }
+},
+"proof": {
+  "type": "Ed25519Signature2020",
+  "created": "2021-11-13T18:19:39Z",
+  "verificationMethod": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#key-1",
+  "proofPurpose": "assertionMethod",
+  "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
+}
+</pre>
+  
 2. IotLoRa
   서비스도메인(디바이스관리 도메인)에 등록될때 추가된다.
-  서비스도메인의 전자서명 필요, 전자서명은 SC에서 검증된다.
+  서비스도메인의 전자서명 필요, 전자서명은 SC에서 검증된다.   
+
+<pre>
+"credentialSubject": {
+  "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",  // ???
+  "service": {
+    "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#svc-iot-lora",
+    "type": "IotLoRa",
+    "serviceEndpoint": "https://lora.example.co.kr"
+  }
+},
+"proof": {
+  "type": "Ed25519Signature2020",
+  "created": "2021-11-13T18:19:39Z",
+  "verificationMethod": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#key-1",
+  "proofPurpose": "assertionMethod",
+  "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
+}
+</pre>
+
 3. IotWifi
   서비스도메인(디바이스관리 도메인)에 등록될때 추가된다.
   서비스도메인의 전자서명 필요, 전자서명은 SC에서 검증된다.
 
+<pre>
+"credentialSubject": {
+  "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",  // ???
+  "service": {
+    "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#svc-iot-wifi",
+    "type": "IotWifi",
+    "serviceEndpoint": "https://wifi.example.co.kr"
+  }
+},
+"proof": {
+  "type": "Ed25519Signature2020",
+  "created": "2021-11-13T18:19:39Z",
+  "verificationMethod": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#key-1",
+  "proofPurpose": "assertionMethod",
+  "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
+}
+</pre>
+
 #### Deactivate & Enactivate
 서비스도메인(Issuer)의 전자서명 필요, 전자서명은 SC에서 검증된다.
 
+<pre>
+"credentialSubject": {
+  "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",  // ???
+  "deactivated": true      // or false
+},
+"proof": {
+  "type": "Ed25519Signature2020",
+  "created": "2021-11-13T18:19:39Z",
+  "verificationMethod": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#key-1",
+  "proofPurpose": "assertionMethod",
+  "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
+}
+</pre>
+
 ### DID Rovoke (Delete)
 서비스도메인(Issuer)의 전자서명 필요, 전자서명은 SC에서 검증된다.
+
+<pre>
+"credentialSubject": {
+  "revocation": {
+    "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",  // ???
+  }
+},
+"proof": {
+  "type": "Ed25519Signature2020",
+  "created": "2021-11-13T18:19:39Z",
+  "verificationMethod": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#key-1",
+  "proofPurpose": "assertionMethod",
+  "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
+}
+</pre>
 
 
 ## References
