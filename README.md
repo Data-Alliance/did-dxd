@@ -35,26 +35,81 @@ Under DA-DID, the transfer of personal information must be done only through an 
 Clients (Holder, Issuer, Verifier) must directly create a Key-Pair to be used for DID registration and create a “specific id string” based on the generated key.
 The DID and Public-Key generated in this way become the payload of the request message, and the request is delivered to the issuer.   
 * DID Enroll Request : Holder to Issuer
-<pre>
+```json
 {
   "id" : "<Holder.DID>",
   "verificationMethod": [
     {
+      "@context": [
+        "https://www.w3.org/ns/did/v1"
+      ],
       "id": "<Holder.DID>#keys-1",
       "type": "EcdsaSecp256k1VerificationKey2019",
+      "controller": "<Holder.DID>",
       "publicKeyBase58": "49PpU4vgqFNtNUAeaeR2m6ZLsgMavL54HtXaTwYdqyi7xKQXREUw219nEH"
     }
   ]
 }
-</pre>
+```
 
 Upon receiving the client's request message, the issuer adds "controller" and necessary "service" information on request message and convey it to Data-Alliance's Verifiable Data Registry.
 After conveying, the DID Document for the request is created in the Data-Alliance Verifiable Data Registry and finally delivered to the Client through the Issuer.
 * DID Enroll Request : Issuer to Data-Alliance Verifiable Data Registry
-<pre>
-"credentialSubject": {
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1"
+  ],
+  "credentialSubject": {
+    "id": "<Holder.DID>",
+    "controller": "<Issuer.DID>",
+    "verificationMethod": [
+      {
+        "id": "<Holder.DID>#keys-1",
+        "type": "EcdsaSecp256k1VerificationKey2019",
+        "controller": "<Holder.DID>",
+        "publicKeyBase58": "49PpU4vgqFNtNUAeaeR2m6ZLsgMavL54HtXaTwYdqyi7xKQXREUw219nEH"
+      }
+    ],
+    "service": [
+      {
+        "id": "<Issuer.DID>#svc-did",
+        "type": "DidControl",
+        "serviceEndpoint": "https://did.example.co.kr"
+      }
+    ]
+  },
+  "proof": {
+    "type": "EcdsaSecp256k1VerificationKey2019",
+    "created": "2022-03-05T18:19:39Z",
+    "verificationMethod": "<Issuer.DID>#key-1",
+    "proofPurpose": "assertionMethod",
+    "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
+  }
+}
+```
+
+* DID Enroll Response : Data-Alliance Verifiable Data Registry -> Issuer -> Holder
+```json
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1"
+  ],
   "id": "<Holder.DID>",
   "controller": "<Issuer.DID>",
+  "created": "2022-03-05T11:40:27+09:00",
+  "updated": "",
+  "deactivated": false,
+  "authentication": [
+    "<Holder.DID>#keys-1"
+  ],
+  "assertionMethod": [
+    "<Holder.DID>#keys-1"
+  ],
+  "keyAgreement": [
+    "<Holder.DID>#keys-1"
+  ],
   "verificationMethod": [
     {
       "id": "<Holder.DID>#keys-1",
@@ -68,65 +123,25 @@ After conveying, the DID Document for the request is created in the Data-Allianc
       "id": "<Issuer.DID>#svc-did",
       "type": "DidControl",
       "serviceEndpoint": "https://did.example.co.kr"
-    }
-  ]
-},
-"proof": {
-  "type": "EcdsaSecp256k1VerificationKey2019",
-  "created": "2021-11-13T18:19:39Z",
-  "verificationMethod": "<Issuer.DID>#key-1",
-  "proofPurpose": "assertionMethod",
-  "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
-}
-</pre>
-
-* DID Enroll Response : Data-Alliance Verifiable Data Registry -> Issuer -> Holder
-<pre>
-{
-  “@context": [
-    "https://www.w3.org/ns/did/v1",
-    “https://w3id.org/security/suites/secp256k1-2019/v1”
-  ],
-  "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",
-  "controller": "did:dxd:0000da235c7923cac3a7af330ade1cdaf21a657a7cca8c8bcfa7",
-  "created": "2022-09-06T11:40:27+09:00",
-  "updated": "2022-09-06T11:40:27+09:00",
-  "deactivated": false,
-  "authentication": ["did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#keys-1"],
-  "assertionMethod": ["did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#keys-1"],
-  "keyAgreement": ["did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#keys-1"],
-  "verificationMethod": [
-    {
-      "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#keys-1",
-      "type": "EcdsaSecp256k1VerificationKey2019",
-      "controller": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87",
-      "publicKeyBase58": "zEY59y7px76e2yv5FMj9fYcjDsqk8yus6isWtkF69ZrHY"
-    }
-  ],
-  "service": [
-    {
-      "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#svc-did",
-      "type": "DidControl",
-      "serviceEndpoint": "https://did.example.co.kr"
     },
     {
-      "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#svc-citizenship",
+      "id": "<Issuer.DID>#svc-citizenship",
       "type": "CitizenShip",
       "serviceEndpoint": "https://citizen.example.co.kr"
     },
     {
-      "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#svc-iot-lora",
+      "id": "<Issuer.DID>#svc-iot-lora",
       "type": "IotLoRa",
       "serviceEndpoint": "https://lora.example.co.kr"
     },
     {
-      "id": "did:dxd:0000dc13588923c083a70f3307de11d3f213657979c68c8b2f87#svc-iot-wifi",
+      "id": "<Issuer.DID>#svc-iot-wifi",
       "type": "IotWifi",
       "serviceEndpoint": "https://wifi.example.co.kr"
     }
   ],
 }
-</pre>
+```
 
 ### DID Infomation (Read)
 
