@@ -110,7 +110,7 @@ Under DA-DID, the transfer of personal information must be done only through an 
 ### DID Enroll (Create)
 Clients (Holder, Issuer, Verifier) must directly create a Key-Pair to be used for DID registration and create a “specific id string” based on the generated key.
 The DID and Public-Key generated in this way become the payload of the request message, and the request is delivered to the issuer.   
-* DID Enroll Request : Holder to Issuer
+* DID Enroll Request : Holder &Rightarrow; Issuer
 ```json
 {
   "@context": [
@@ -131,7 +131,7 @@ The DID and Public-Key generated in this way become the payload of the request m
 
 Upon receiving the client's request message, the issuer adds "controller" and necessary "service" information on request message and convey it to Data-Alliance's Verifiable Data Registry.
 After conveying, the DID Document for the request is created in the Data-Alliance Verifiable Data Registry and finally delivered to the Client through the Issuer.
-* DID Enroll Request : Issuer to Data-Alliance Verifiable Data Registry
+* DID Enroll Request : Issuer &Rightarrow; Data-Alliance Verifiable Data Registry
 ```json
 {
   "@context": [
@@ -172,7 +172,7 @@ After conveying, the DID Document for the request is created in the Data-Allianc
 }
 ```
 
-* DID Enroll Response : Data-Alliance Verifiable Data Registry -> Issuer -> Holder
+* DID Enroll Response : Data-Alliance Verifiable Data Registry &Rightarrow; Issuer &Rightarrow; Holder
 ```json
 {
   "@context": [
@@ -220,7 +220,7 @@ After conveying, the DID Document for the request is created in the Data-Allianc
 
 Clients can get information of a specific DID by sending it to the Data-Alliance Verifiable Data Registry.   
 After Requesting, a DID Document would return 
-* DID Infomation Request : Client to Data-Alliance Verifiable Data Registry
+* DID Infomation Request : Client &Rightarrow; Data-Alliance Verifiable Data Registry
 <pre>
 {
   "@context": [
