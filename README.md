@@ -220,7 +220,7 @@ After conveying, the DID Document for the request is created in the Data-Allianc
 
 Clients can get information of a specific DID by sending it to the Data-Alliance Verifiable Data Registry.   
 After Requesting, a DID Document would return 
-* DID Infomation Request : Client &Rightarrow; Data-Alliance Verifiable Data Registry
+* Request message
 <pre>
 {
   "@context": [
