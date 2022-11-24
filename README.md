@@ -72,7 +72,13 @@ Under DA-DID, the transfer of personal information must be done only through an 
       "id": "<Holder.DID>#keys-1",
       "type": "EcdsaSecp256k1VerificationKey2019",
       "controller": "<Holder.DID>",
-      "publicKeyBase58": "zEY59y7px76e2yv5FMj9fYcjDsqk8yus6isWtkF69ZrHY"
+      "publicKeyBase58": "49PpU4vgqFNtNUAeaeR2m6ZLsgMavL54HtXaTwYdqyi7xKQXREUw219nEH"
+    },
+    {
+      "id": "<Holder.DID>#keys-2",
+      "type": "EcdsaSecp256k1VerificationKey2019",
+      "controller": "<Holder.DID>",
+      "publicKeyBase58": "e7Pg44vgqNNtNUAa1eR26mZLLgMavv44HtTwYaXdqyi7xKxnwQRU219nw1"
     }
   ],
   "service": [
