@@ -7,20 +7,38 @@ Necessary personal information is stored in a safe area (Trusted Execution Envir
 In addition, when Data-Alliance DIDs are assigned to various IoT devices, it is possible to verify the authenticity of data without the risk of forgery and alteration during data collection and transmission.   
 This document conforms to the requirements specified in Decentralized Identifiers (DIDs) v1.0 (See. https://www.w3.org/TR/2022/REC-did-core-20220719/)
 
+## Specification
+
 ### Method Name
 DA-DID(Data-Alliance DIDs) Method name is **dxd**.   
 A DA-DID that uses this method **MUST** begin with the prefix **"did:dxd:"**, this prefix **MUST** be in lowercase.
 
-## Specification
 ### Generating a Key-Pair
 It is generated using the elliptic curve encryption algorithm(secp256k1) using Neal Koblitz elliptic curve. (See http://www.secg.org/sec2-v2.pdf)   
 Key generation must be generated directly from the device of the DID Subject.
 
 ### Generating a unique idstring
    
-DA-DID format is descibed below.
-
+DA-DID format is descibed below.   
 ![did:dxd_format](https://github.com/Data-Alliance/did-dxd/blob/master/did:dxd_format.png)
+- da-did = "did:dxd:" + specific-idstring
+- specific-idstring = network-id + idstring + checksum
+- network-id: 2 bytes (4 hex)
+- idstring: 20 bytes (40 hex)
+- checksum: 4 bytes (8 hex), SHA3-256(network-id | idstring)
+- network-id of the Data-Alliance mainnet is defined "0000“
+- idstring defined by the first 20 bytes in SHA3-256(pubkey)
+- checksum for prevent human typing error
+#### Go Code Example
+```go
+main-net := "0000"
+digest1 := sha3.Sum256([]byte(pubKey))
+idString := hex.EncodeToString(digest1[:])[0:40]
+digest2 := sha3.Sum256([]byte(main-net + idString))
+checksum := hex.EncodeToString(digest2[:])[0:8]
+specificIdString := main-net + idString + checksum
+DID := fmt.Sprintf("did:dxd:%s", specificIdString)
+```
 
 ### DID Document Model
 DA-DID (Data-Alliance DIDs) provides a DID Document that are mapped to the DID of registered Holder through Verifiable Data Registry.   
@@ -29,7 +47,6 @@ It contains only information for proof of identity and proof of authority.
 Under DA-DID, the transfer of personal information must be done only through an encrypted Verifiable Credential.   
 
 ![did-document_format1](https://github.com/Data-Alliance/did-dxd/blob/master/did-document_format1.png)
-![did-document_format2](https://github.com/Data-Alliance/did-dxd/blob/master/did-document_format2.png)
 ```json
 {
   "@context": [
