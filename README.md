@@ -161,7 +161,7 @@ After conveying, the DID Document for the request is created in the Data-Allianc
     ]
   },
   "proof": {
-    "type": "EcdsaSecp256k1VerificationKey2019",
+    "type": "EcdsaSecp256k1Signature2019",
     "created": "2022-03-05T18:19:39Z",
     "verificationMethod": "<Issuer.DID>#key-1",
     "proofPurpose": "assertionMethod",
@@ -258,7 +258,7 @@ If success, the updated DID Document would be returned
     ]
   },
   "proof": {
-    "type": "Ed25519Signature2020",
+    "type": "EcdsaSecp256k1Signature2019",
     "created": "2021-11-13T18:19:39Z",
     "verificationMethod": "<Holder.DID>#key-1",
     "proofPurpose": "assertionMethod",
@@ -341,7 +341,7 @@ When the Issuer wants to provide the "CitizenShip" service to the DID Subject, i
     }
   },
   "proof": {
-    "type": "Ed25519Signature2020",
+    "type": "EcdsaSecp256k1Signature2019",
     "created": "2022-11-13T18:19:39Z",
     "verificationMethod": "<Issuer.DID>#key-1",
     "proofPurpose": "assertionMethod",
@@ -368,7 +368,7 @@ When the Issuer wants to provide the "IotLoRa" service to the DID Subject, it up
     }
   },
   "proof": {
-    "type": "Ed25519Signature2020",
+    "type": "EcdsaSecp256k1Signature2019",
     "created": "2022-11-13T18:19:39Z",
     "verificationMethod": "<Issuer.DID>#key-1",
     "proofPurpose": "assertionMethod",
@@ -395,7 +395,7 @@ When the Issuer wants to provide the "IotWifi" service to the DID Subject, it up
     }
   },
   "proof": {
-    "type": "Ed25519Signature2020",
+    "type": "EcdsaSecp256k1Signature2019",
     "created": "2022-11-13T18:19:39Z",
     "verificationMethod": "<Issuer.DID>#key-1",
     "proofPurpose": "assertionMethod",
@@ -419,7 +419,7 @@ The request message must include the issuer's digital signature.
     "deactivated": true
   },
   "proof": {
-    "type": "Ed25519Signature2020",
+    "type": "EcdsaSecp256k1Signature2019",
     "created": "2022-11-13T18:19:39Z",
     "verificationMethod": "<Issuer.DID>#key-1",
     "proofPurpose": "assertionMethod",
