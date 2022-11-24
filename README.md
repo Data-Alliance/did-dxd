@@ -1,14 +1,15 @@
 # Data-Alliance Decentralized IDs Method Specification
 
-## Introduction
-DA소개 및 연락처
-DID표준 버전
-## Overview
-The system aims to provide secure authentication and various services based on DID & Verifiable Credential Specifications published by the W3C.
+## About Data-Alliance DIDs
+The system aims to provide secure authentication and various services based on DID & Verifiable Credential Specifications published by the W3C.   
+As an identity verification technology, Data-Alliance DIDs are designed to use blockchain technology to prove one's own identity without a separate intermediary, making it impossible to forge and alter.   
+Necessary personal information is stored in a safe area (Trusted Execution Environment) that only individuals can access, and is configured so that it can be submitted when necessary to prove authority.   
+In addition, when Data-Alliance DIDs are assigned to various IoT devices, it is possible to verify the authenticity of data without the risk of forgery and alteration during data collection and transmission.   
+This document conforms to the requirements specified in Decentralized Identifiers (DIDs) v1.0 (See. https://www.w3.org/TR/2022/REC-did-core-20220719/)
 
 ### Method Name
-The DA-DID(Data-Alliance DID) Method name is **dxd**
-A DA-DID that uses this method **MUST** begin with the prefix "did:dxd", this prefix **MUST** be in lowercase.
+DA-DID(Data-Alliance DIDs) Method name is **dxd**.   
+A DA-DID that uses this method **MUST** begin with the prefix **"did:dxd:"**, this prefix **MUST** be in lowercase.
 
 ## Specification
 ### Generating a Key-Pair
@@ -81,7 +82,6 @@ Under DA-DID, the transfer of personal information must be done only through an 
   ],
 }
 ```
-
 
 ## CRUD Operation
 ### DID Enroll (Create)
@@ -326,7 +326,6 @@ When the Issuer wants to provide the "CitizenShip" service to the DID Subject, i
   }
 }
 ```
-
 
 ##### IotLoRa
 When the Issuer wants to provide the "IotLoRa" service to the DID Subject, it updates the "service" information in the DID Document of the DID Subject. The request message must include the issuer's digital signature.
