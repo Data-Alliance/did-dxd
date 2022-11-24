@@ -55,7 +55,7 @@ Under DA-DID, the transfer of personal information must be done only through an 
   ],
   "id": "<Holder.DID>",
   "controller": "<Issuer.DID>",
-  "created": "2022-03-05T11:40:27+09:00",
+  "created": "2022-03-05T18:19:39Z",
   "updated": "",
   "deactivated": false,
   "authentication": [
@@ -114,7 +114,8 @@ The DID and Public-Key generated in this way become the payload of the request m
 ```json
 {
   "@context": [
-    "https://www.w3.org/ns/did/v1"
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1"
   ],
   "id": "<Holder.DID>",
   "verificationMethod": [
@@ -134,7 +135,8 @@ After conveying, the DID Document for the request is created in the Data-Allianc
 ```json
 {
   "@context": [
-    "https://www.w3.org/ns/did/v1"
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1"
   ],
   "credentialSubject": {
     "id": "<Holder.DID>",
@@ -162,7 +164,7 @@ After conveying, the DID Document for the request is created in the Data-Allianc
   },
   "proof": {
     "type": "EcdsaSecp256k1Signature2019",
-    "created": "2022-03-05T18:19:39Z",
+    "created": "2023-03-05T19:19:19Z",
     "verificationMethod": "<Issuer.DID>#key-1",
     "proofPurpose": "assertionMethod",
     "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
@@ -179,7 +181,7 @@ After conveying, the DID Document for the request is created in the Data-Allianc
   ],
   "id": "<Holder.DID>",
   "controller": "<Issuer.DID>",
-  "created": "2022-03-05T11:40:27+09:00",
+  "created": "2022-03-05T18:19:39Z",
   "updated": "",
   "deactivated": false,
   "authentication": [
@@ -244,7 +246,8 @@ If success, the updated DID Document would be returned
 ```json
 {
   "@context": [
-    "https://www.w3.org/ns/did/v1"
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1"
   ],
   "credentialSubject": {
     "id": "<Holder.DID>",
@@ -259,7 +262,7 @@ If success, the updated DID Document would be returned
   },
   "proof": {
     "type": "EcdsaSecp256k1Signature2019",
-    "created": "2021-11-13T18:19:39Z",
+    "created": "2023-03-05T19:19:19Z",
     "verificationMethod": "<Holder.DID>#key-1",
     "proofPurpose": "assertionMethod",
     "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
@@ -276,8 +279,8 @@ If success, the updated DID Document would be returned
   ],
   "id": "<Holder.DID>",
   "controller": "<Issuer.DID>",
-  "created": "2022-03-05T11:40:27+09:00",
-  "updated": "2023-03-05T11:40:27+09:00",
+  "created": "2022-03-05T18:19:39Z",
+  "updated": "2023-03-05T19:19:19Z",
   "deactivated": false,
   "authentication": [
     "<Holder.DID>#keys-1",
@@ -330,7 +333,8 @@ When the Issuer wants to provide the "CitizenShip" service to the DID Subject, i
 ```json
 {
   "@context": [
-    "https://www.w3.org/ns/did/v1"
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1"
   ],
   "credentialSubject": {
     "id": "<Holder.DID>",
@@ -342,7 +346,7 @@ When the Issuer wants to provide the "CitizenShip" service to the DID Subject, i
   },
   "proof": {
     "type": "EcdsaSecp256k1Signature2019",
-    "created": "2022-11-13T18:19:39Z",
+    "created": "2023-03-05T19:19:19Z",
     "verificationMethod": "<Issuer.DID>#key-1",
     "proofPurpose": "assertionMethod",
     "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
@@ -357,7 +361,8 @@ When the Issuer wants to provide the "IotLoRa" service to the DID Subject, it up
 ```json
 {
   "@context": [
-    "https://www.w3.org/ns/did/v1"
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1"
   ],
   "credentialSubject": {
     "id": "<Holder.DID>",
@@ -369,7 +374,7 @@ When the Issuer wants to provide the "IotLoRa" service to the DID Subject, it up
   },
   "proof": {
     "type": "EcdsaSecp256k1Signature2019",
-    "created": "2022-11-13T18:19:39Z",
+    "created": "2023-03-05T19:19:19Z",
     "verificationMethod": "<Issuer.DID>#key-1",
     "proofPurpose": "assertionMethod",
     "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
@@ -384,7 +389,8 @@ When the Issuer wants to provide the "IotWifi" service to the DID Subject, it up
 ```json
 {
   "@context": [
-    "https://www.w3.org/ns/did/v1"
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1"
   ],
   "credentialSubject": {
     "id": "<Holder.DID>",
@@ -396,7 +402,7 @@ When the Issuer wants to provide the "IotWifi" service to the DID Subject, it up
   },
   "proof": {
     "type": "EcdsaSecp256k1Signature2019",
-    "created": "2022-11-13T18:19:39Z",
+    "created": "2023-03-05T19:19:19Z",
     "verificationMethod": "<Issuer.DID>#key-1",
     "proofPurpose": "assertionMethod",
     "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
@@ -412,7 +418,8 @@ The request message must include the issuer's digital signature.
 ```json
 {
   "@context": [
-    "https://www.w3.org/ns/did/v1"
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/secp256k1-2019/v1"
   ],
   "credentialSubject": {
     "id": "<Holder.DID>",
@@ -420,7 +427,7 @@ The request message must include the issuer's digital signature.
   },
   "proof": {
     "type": "EcdsaSecp256k1Signature2019",
-    "created": "2022-11-13T18:19:39Z",
+    "created": "2023-03-05T19:19:19Z",
     "verificationMethod": "<Issuer.DID>#key-1",
     "proofPurpose": "assertionMethod",
     "proofValue": "z58DAdFfa9SkqZMVPxAQpic7ndSayn1PzZs6ZjWp1CktyGesjuTSwRdoWhAfGFCF5bppETSTojQCrfFPP2oumHKtz"
@@ -430,5 +437,6 @@ The request message must include the issuer's digital signature.
 
 ## References
 - Decentralized Identifiers (DIDs) v1.0 https://www.w3.org/TR/2022/REC-did-core-20220719/
+- Verifiable Credentials Data Model v1.1 https://www.w3.org/TR/2022/REC-vc-data-model-20220303/
 - DID Specification Registries https://www.w3.org/TR/2022/NOTE-did-spec-registries-20220809/
 - JSON-LD 1.0 - A JSON-based Serialization for Linked Data https://www.w3.org/TR/json-ld
