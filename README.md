@@ -102,7 +102,7 @@ Under DA-DID, the transfer of personal information must be done only through an 
       "type": "IotWifi",
       "serviceEndpoint": "https://wifi.example.co.kr"
     }
-  ],
+  ]
 }
 ```
 
@@ -212,7 +212,7 @@ After conveying, the DID Document for the request is created in the Data-Allianc
       "type": "CitizenShip",
       "serviceEndpoint": "https://citizen.example.co.kr"
     }
-  ],
+  ]
 }
 ```
 
@@ -319,7 +319,7 @@ If success, the updated DID Document would be returned
       "type": "CitizenShip",
       "serviceEndpoint": "https://citizen.example.co.kr"
     }
-  ],
+  ]
 }
 ```
 
