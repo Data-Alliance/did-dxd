@@ -435,6 +435,15 @@ The request message must include the issuer's digital signature.
 }
 ```
 
+## Privacy Considerations
+All personal information authenticated through DA DIDs is also stored in the TEE, allowing users to directly manage it.   
+If personal information is to be exchanged between service endpoints using DA DIDs, it must be encrypted.   
+The ciphertext can only be decrypted with the private-key.   
+
+## Security Considerations
+In DA DIDs, only the public-key is registered through the DID Document, but the private-key is stored in the TEE and managed directly by the user.   
+In order to prevent malicious tampering of DID Document, update is possible only after going through the authentication step through digital signature.   
+
 ## References
 - Decentralized Identifiers (DIDs) v1.0 https://www.w3.org/TR/2022/REC-did-core-20220719/
 - Verifiable Credentials Data Model v1.1 https://www.w3.org/TR/2022/REC-vc-data-model-20220303/
